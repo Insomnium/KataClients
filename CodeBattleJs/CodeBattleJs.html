@@ -1,0 +1,49 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>TEST</title>
+  <script src="CodeBattleJsLibrary.js"></script>
+</head>
+<body id="body">
+  <textarea id="text" readonly=true style="display: block; width: 100%; height: 100%; resize: none;"></textarea>
+  <script type="text/javascript">
+
+      text.scrollTop = text.scrollHeight;
+
+      let gcb = new GameClient("localhost:8080", "katatonia@mail.org", "1085963739701489268");
+      gcb.textArea = text;
+
+    /**
+     * TODO: solve the quizz here
+     * @param level level number
+     * @param questions exact value for current step
+     * @returns answer for exact value
+     */
+    let solve = function(level, questions) {
+        switch (level) {
+            case 0: {
+                if (questions === 'hello') {
+                    return 'world'
+                } else if (questions === 'world') {
+                    return 'hello'
+                }
+                return questions
+            }
+            default: {
+                return 'TODO: solve quiz'
+            }
+        }
+    };
+
+    gcb.run(function(level, questions = []) {
+        if (questions.length === 0) {
+            gcb.startNextLevel()
+        } else {
+            let answers = [];
+            questions.forEach(q => answers.push(solve(level, q)));
+            gcb.sendAnswers(answers);
+        }
+    });
+  </script>
+</body>
+</html>
