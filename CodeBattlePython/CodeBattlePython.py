@@ -1,7 +1,7 @@
 from CodeBattlePythonLibrary import GameClient
 import random
 
-SERVER_ADDRESS = 'epruizhw0172.moscow.epam.com:8080'
+SERVER_ADDRESS = 'localhost:8080'
 PLAYER_NAME = 'katatonia@mail.org'
 AUTH_CODE = '1085963739701489268'
 
@@ -18,6 +18,12 @@ def turn(gcb, level, questions):
 
 
 def solve(level, question):
+    """
+    TODO: solve the quizz here
+    :param level: level number
+    :param question: exact value for current step
+    :return: answer for exact value
+    """
     if level == 0:
         if question == 'hello':
             return 'world'
