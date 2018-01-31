@@ -1,0 +1,12 @@
+.idea/
+done.txt
+
+venv*
+__pycache__*
+*.bat
+
+CodeBattleCpp/
+CodeBattleJava/
+CodeBattleJs/
+CodeBattleNet/
+CodeBattleRuby/
