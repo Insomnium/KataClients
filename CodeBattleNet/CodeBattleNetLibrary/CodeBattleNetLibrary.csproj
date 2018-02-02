@@ -49,7 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameClientBomberman.cs" />
+    <Compile Include="CodeBattleNetLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Quizz.cs" />
   </ItemGroup>

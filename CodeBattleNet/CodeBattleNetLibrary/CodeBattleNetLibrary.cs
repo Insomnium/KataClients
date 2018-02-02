@@ -18,23 +18,46 @@ namespace CodeBattleNetLibrary
 				new WebSocket(
 					$"ws://{server}/codenjoy-contest/ws?user={user}&code={code}");
 			        _socket.MessageReceived += (s, e) => { ParseField(e.Message); };
+            _socket.Opened += new EventHandler(onOpened);
+            _socket.Error += new EventHandler<SuperSocket.ClientEngine.ErrorEventArgs>(onError);
+            _socket.Closed += new EventHandler(onClose);
 		}
 
-		public void Run(Action handler)
+        private void onOpened(object sender, EventArgs e)
+        {
+            Console.WriteLine("Connection established");
+        }
+
+        private void onError(object sender, EventArgs e)
+        {
+            Console.WriteLine("### error ###\n" + e.ToString());
+        }
+
+        private void onClose(object sender, EventArgs e)
+        {
+            Console.WriteLine("### disconnected ###");
+        }
+
+        public void Run(Action handler)
 		{
 			OnUpdate += handler;
 			_socket.Open();
 		}
 
-		public void Blank()
-		{
-			_socket.Send("");
-		}
+        public void StartNextLevel()
+        {
+            send("StartNextLevel");
+        }
 
-        public void sendAnswers(IList<string> answers)
+        public void SkipThisLevel()
+        {
+            send("SkipThisLevel");
+        }
+
+        public void SendAnswers(IList<string> answers)
         {
             string msg = JsonConvert.SerializeObject(answers);
-            Console.WriteLine(msg);
+            send(msg);
         }
 
         private void send(string answer)
