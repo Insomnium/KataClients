@@ -3,15 +3,24 @@ package ru.codebattle.client;
 
 import lombok.SneakyThrows;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import static java.util.Collections.unmodifiableMap;
 import static java.util.stream.Collectors.toList;
 
 public class CodeBattleJava {
 
     private static final String SERVER_ADDRESS = "epruizhw0172.moscow.epam.com:8080";
-    private static final String PLAYER_NAME = "java@mail.org";
-    private static final String AUTH_CODE = "2980396691258897741";
+    private static final String PLAYER_NAME = "java0@mail.org";
+    private static final String AUTH_CODE = "11707494732053569800";
+    private static final Map<String, String> ANSWERS_STUB = unmodifiableMap(
+            new HashMap<String, String>() {{
+                put("hello", "world");
+                put("world", "hello");
+            }}
+    );
 
     @SneakyThrows
     public static void main(String[] args) {
@@ -32,14 +41,7 @@ public class CodeBattleJava {
     private static String solve(Integer level, String question) {
         switch (level) {
             case 0:
-                switch (question) {
-                    case "hello":
-                        return "world";
-                    case "world":
-                        return "hello";
-                    default:
-                        return question;
-                }
+                return ANSWERS_STUB.getOrDefault(question, question);
             default:
                 return "TODO: solve quiz";
         }
