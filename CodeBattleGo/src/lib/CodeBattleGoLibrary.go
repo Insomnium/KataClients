@@ -53,7 +53,7 @@ func (c GameClient) Run(handler Handler) {
 
 	go func() {
 		for {
-			quiz := <- c.msg
+			quiz := <-c.msg
 			log.Printf("Received: %s", quiz)
 			handler(c, quiz.Level, quiz.Questions)
 		}

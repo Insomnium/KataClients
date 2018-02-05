@@ -8,7 +8,6 @@ import (
 )
 
 const (
-	//server_address = "epruizhw0172.moscow.epam.com:8080"
 	SERVER_ADDRESS = "localhost:8080"
 	PLAYER_NAME    = "go1@mail.org"
 	AUTH_CODE      = "20488755882143699524"
