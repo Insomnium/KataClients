@@ -12,9 +12,9 @@ import static java.util.stream.Collectors.toList;
 
 public class CodeBattleJava {
 
-    private static final String SERVER_ADDRESS = "epruizhw0172.moscow.epam.com:8080";
-    private static final String PLAYER_NAME = "java0@mail.org";
-    private static final String AUTH_CODE = "11707494732053569800";
+    private static final String SERVER_ADDRESS = "localhost:8080";
+    private static final String PLAYER_NAME = "katatonia@mail.org";
+    private static final String AUTH_CODE = "1085963739701489268";
     private static final Map<String, String> ANSWERS_STUB = unmodifiableMap(
             new HashMap<String, String>() {{
                 put("hello", "world");
