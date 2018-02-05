@@ -4,7 +4,6 @@ done.txt
 
 venv*
 __pycache__*
-*.bat
 
-CodeBattleJava/
+CodeBattleJavaObsolete/
 CodeBattleRuby/
