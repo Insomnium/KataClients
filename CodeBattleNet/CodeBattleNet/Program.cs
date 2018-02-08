@@ -8,8 +8,7 @@ namespace CodeBattleNet
 	{
 		public static void Main()
 		{
-			var r = new Random();
-			var gcb = new GameClientKata("localhost:8080", "katatonia@mail.org", "1085963739701489268");
+			var gcb = new GameClientKata("epruizhw0172.moscow.epam.com:8080", "farkhad_muminov@epam.com", "5298793271048750521");
             gcb.Run(() =>
             {
                 if (gcb.Questions.Count == 0)
@@ -18,7 +17,6 @@ namespace CodeBattleNet
                 }
                 else
                 {
-
                     var answers = new List<string>();
                     foreach (var q in gcb.Questions)
                     {
@@ -41,7 +39,7 @@ namespace CodeBattleNet
                         {
                             return "world";
                         }
-                        else if (question.Equals("world"))
+                        if (question.Equals("world"))
                         {
                             return "hello";
                         }
@@ -49,7 +47,6 @@ namespace CodeBattleNet
                     }
                 default:
                     return "TODO: solve quiz";
-                    
             }
         }
 	}
